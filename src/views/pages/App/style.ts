@@ -19,8 +19,5 @@ export const Container = styled.div`
                 background-color: darkblue;
             }
         }
-        & img {
-            transition: none 0.3s;
-        }
     }
     `
