@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
-import api from './services/api';
-import ContentLoader from './ContentLoader';
+import api from '../../../services/api';
+import ContentLoader from '../../../ContentLoader';
+import { Container }  from './style'
 
 const App: React.FC = () => {
   const [photo, setPhoto ] = useState<string>('');
@@ -28,15 +29,14 @@ const App: React.FC = () => {
   }, []);
   
   return (
-    <div>
-      <div>
+    <Container>
+      <div className="content">
         <h1>Hello Gama Academy</h1>
         <h4>Veja esse macaquinho:</h4>
-        <button onClick={() => handleSortImg()}>Clique</button>
+        <button onClick={handleSortImg}>Clique</button>
       </div>
-      <img width="200px" height="auto" src={photo} alt="dog" />
-      { isLoad && (<ContentLoader/>)}
-    </div>
+      { isLoad ? (<ContentLoader/>) : (<img width="200px" height="auto" src={photo} alt="dog" />)}
+    </Container>
     )
 }
 
